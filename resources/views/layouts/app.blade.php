@@ -30,13 +30,19 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav mr-auto secondary_menu">
+                      <li class="{{ (Request::is('/') ? 'active' : '') }}">
+                      <a href="{{ url('') }}"><i class="fa fa-home"></i> Home</a>
+                    </li>
+                    <li class="{{ (Request::is('dogs/create') ? 'active' : '') }}">
+                      <a href="{{ url('dogs/create') }}">Create New Dog</a>
+                    </li>
+                    <li class="{{ (Request::is('dogs') ? 'active' : '') }}">
+                      <a href="{{ url('dogs') }}">See All Dogs</a>
+                    </li>
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->

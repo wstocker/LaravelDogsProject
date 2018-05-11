@@ -22,25 +22,22 @@
     data () {
       return {
         dog_name: '',
-        csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-       };
+          csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+         };
       },
       mounted() {
-         console.log('Component Mounted');
+        console.log('Component Mounted');
       },
       methods: {
         addDog() {
-          var app = this;
-           console.log(this.dog_name);
-            axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             axios.post('/dogs', { dog_name: this.dog_name })
                 .then(function (resp) {
-                    alert("Dog Added");
+                    alert("New dog has been added!");
                     console.log(resp);
                 })
                 .catch(function (resp) {
                     console.log(resp);
-                    alert("Could not add Dog");
+                    alert("Could not add new dog! Try again!");
                 });
             }
         }

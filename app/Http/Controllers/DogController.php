@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Dog;
 
 class DogController extends Controller
 {
@@ -14,7 +15,8 @@ class DogController extends Controller
     public function index()
     {
         //
-        return view('create');
+        $dogs=Dog::all();
+        return view('index',compact('dogs'));
     }
 
     /**
@@ -36,7 +38,14 @@ class DogController extends Controller
      */
     public function store(Request $request)
     {
-        return 'All done';
+        if($request->post('dog_name'))
+        {
+           $dog = new Dog();
+           $dog->name=$request->post('dog_name');
+           $dog->save();
+	       return 'Dog Saved';
+        }
+        
         //
     }
 
