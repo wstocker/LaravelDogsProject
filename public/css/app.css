@@ -10417,8 +10417,12 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-li.secondary_menu {
+ul.secondary_menu li {
   padding-left: 0.5rem !important;
   padding-right: 0.5rem !important;
+}
+
+.container {
+  padding-bottom: 15px;
 }
 

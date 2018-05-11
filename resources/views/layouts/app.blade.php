@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="//stackpath.bootstrapcdn.com/bootswatch/4.1.1/cyborg/bootstrap.min.css" rel="preload" as="style"">
+
 </head>
 <body>
     <div id="app">
@@ -72,9 +74,7 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-          
+        <main> 
             @yield('content')
         </main>
     </div>

@@ -40,15 +40,22 @@ class DogController extends Controller
     {
         if($request->post('dog_name'))
         {
-           $dog = new Dog();
-           $dog->name=$request->post('dog_name');
-           $dog->save();
-	       return 'Dog Saved';
-        }
-        
-        //
+           // Save new Dog entry from post.
+           try 
+           {
+             $dog = new Dog();
+             $dog->name=$request->post('dog_name');
+             $dog->save();
+	         return response()->json($request);
+          } 
+         
+          // If save failed report the error.
+          catch (Exception $e) {
+             report($e);
+             return false;
+          }
+       }
     }
-
     /**
      * Display the specified resource.
      *

@@ -14002,9 +14002,25 @@ window.Vue = __webpack_require__(37);
 
 Vue.component('example-component', __webpack_require__(40));
 Vue.component('dog-form-component', __webpack_require__(43));
+//Vue.component('login-form-component', require('./components/LoginFormComponent.vue'));
 
 var app = new Vue({
-  el: '#app'
+   el: '#app',
+   data: {
+      user: {
+         email: '',
+         Password: ''
+      }
+   },
+   methods: {
+      addUser: function addUser() {
+         axios.post('/login', { email: this.user.email, password: this.user.password }).then(function (resp) {
+            alert('Hello ' + resp.data + ' You have logged in!');
+         }).catch(function (resp) {
+            alert("Could not login! Try again!");
+         });
+      }
+   }
 });
 
 /***/ }),
@@ -47483,7 +47499,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container mt-3" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card card-default" }, [
