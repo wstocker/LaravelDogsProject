@@ -14002,14 +14002,13 @@ window.Vue = __webpack_require__(37);
 
 Vue.component('example-component', __webpack_require__(40));
 Vue.component('dog-form-component', __webpack_require__(43));
-//Vue.component('login-form-component', require('./components/LoginFormComponent.vue'));
 
 var app = new Vue({
    el: '#app',
    data: {
       user: {
          email: '',
-         Password: ''
+         password: ''
       }
    },
    methods: {

@@ -12,15 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('create');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 // Routes for Dogs application example.
+Route::get('/home', 'DogController@index');
 Route::resource('dogs', 'DogController');
 
 

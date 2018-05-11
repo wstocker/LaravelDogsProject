@@ -17,25 +17,24 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('dog-form-component', require('./components/DogFormComponent.vue'));
-//Vue.component('login-form-component', require('./components/LoginFormComponent.vue'));
 
-const app = new Vue({
-    el: '#app',
-     data:{
-        user:{
-            email: '',
-            Password: ''
-        },
+const app = new Vue({ 
+   el: '#app',
+   data:{
+      user:{
+         email: '',
+         password: ''
+      },
     },
     methods:{
        addUser: function(){ 
           axios.post('/login', { email: this.user.email, password: this.user.password })
           .then(function (resp) {
              alert('Hello ' + resp.data + ' You have logged in!');
-             })
-             .catch(function (resp) {
-                alert("Could not login! Try again!");
-             });
-         } 
+          })
+          .catch(function (resp) {
+             alert("Could not login! Try again!");
+          });
+       } 
     }
 });
