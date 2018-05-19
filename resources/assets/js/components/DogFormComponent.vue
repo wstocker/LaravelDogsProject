@@ -26,20 +26,15 @@
          };
       },
       mounted() {
-        console.log('Component Mounted');
+        console.log('Component Mounted')
       },
       methods: {
-        addDog() {
-            axios.post('/dogs', { dog_name: this.dog_name })
-                .then(function (resp) {
-                    alert("New dog has been added!");
-                    console.log(resp);
-                })
-                .catch(function (resp) {
-                    console.log(resp);
-                    alert("Could not add new dog! Try again!");
-                });
-            }
-        }
-    }
+        async addDog() {
+           if(this.dog_name.length === 0) alert("Dog name can't be empty!"); return;
+           let post = await axios.post('/dogs', { dog_name: this.dog_name });
+           if(!post) alert("Could not add new dog! Try again!"); return;
+           alert("New dog has been added!");
+         }
+      }
+   }
 </script>

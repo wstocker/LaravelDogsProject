@@ -34,7 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto secondary_menu">
                       <li class="{{ (Request::is('/') ? 'active' : '') }}">
-                      <a href="{{ url('dogs') }}"><i class="fa fa-home"></i> Home</a>
+                      <a href="{{ url('dogs') }}"><i class="fa fa-home"></i>Home</a>
                     </li>
                     <li class="{{ (Request::is('dogs/create') ? 'active' : '') }}">
                       <a href="{{ url('dogs/create') }}">Create New Dog</a>
